@@ -27,5 +27,7 @@ module.exports = {
     "no-unused-vars": [
       "error", { "argsIgnorePattern": "next" }
     ],
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "error"
   },
 };
