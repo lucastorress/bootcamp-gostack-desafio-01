@@ -1,12 +1,11 @@
-import { Request, Response, NextFunction } from express from 'express'
+import express, { Request, Response, NextFunction, Application } from 'express';
 
 import cors from 'cors';
-import { projects } from './controllers/ProjectController';
 
 import { RouterSingleton } from './routes';
 
 class App {
-  public express: express.Application;
+  public express: Application;
 
   public constructor() {
     this.express = express();
@@ -17,6 +16,7 @@ class App {
   private middlewares(): void {
     this.express.use(express.json());
     this.express.use(cors());
+    this.express.use(this.logRequests);
   }
 
   private routes(): void {
